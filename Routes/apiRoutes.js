@@ -10,28 +10,31 @@ module.exports = (app) => {
 
     // POST Requests
     app.post('/api/notes', (req, res) => {
-        // This code adds an id to the note before it is stored in the db.json fiile
-        let array = req.body;
-        array.id;
-        for (let i = 0; i < database.length; i++) {
-        array.id = i;
-        }
-        // This bit sends the note to the db.json file.
+
+        // This is the note that we want to post
+        let currentNote = req.body;
+
+        // Set the ID property to the current size of the database, also increments it properly
+        currentNote.id = ++database.length;
+
+
+        // Now add that note to the database
         database.push(req.body);
         res.json(true);
+
     });
 
     // DELETE Requests
     app.delete('/api/notes/:id', (req, res) => {
 
         // Gets the id of the note you want to delete.
-        const chosen = req.params.id;
+        const deleteID = req.params.id;
 
-        // gets the id of the object that has the value of chosen
-        var removeId = database.map(function(item) { return item.id; }).indexOf(chosen);
-
-        // remove object from db.json
-        database.splice(removeId, 1);
+        // Delete that note from the database using its ID property
+        database.filter(note = () => {
+            if (note.id === deleteID) return false;
+        });
         res.json(true);
+
     });
 };
