@@ -15,11 +15,11 @@ module.exports = (app) => {
         let currentNote = req.body;
 
         // Set the ID property to the current size of the database, also increments it properly
-        currentNote.id = ++database.length;
+        currentNote.id = database.length++;
 
 
         // Now add that note to the database
-        database.push(req.body);
+        database.push(currentNote);
         res.json(true);
 
     });
@@ -31,9 +31,7 @@ module.exports = (app) => {
         const deleteID = req.params.id;
 
         // Delete that note from the database using its ID property
-        database.filter(note = () => {
-            if (note.id === deleteID) return false;
-        });
+        database.
         res.json(true);
 
     });
