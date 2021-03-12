@@ -12,6 +12,7 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
 
         // This is the note that we want to post
+
         let currentNote = req.body;
 
         // Set the ID property to the current size of the database, also increments it properly
