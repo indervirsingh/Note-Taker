@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 8080;
 // Enables Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('./Develop/public'));
+
 
 // Routes
 require('./Routes/apiRoutes')(app);
