@@ -1,5 +1,6 @@
 # Note Taker
 <img src="./Assets/note-taker-screenshot.png">
+
 ## Description
 This application was made using node.js and Express. It is an intuitive note taking app that allows you to save and delete notes. Each note consists of a title, which is what will be displayed in the saved notes section on the left side. Once you click on any of the saved notes, it will load the entire note and display it on screen. You can create a new note by selecting the top right pencil icon and then save it using the save icon. This application is deployed via Heroku, [click here](https://indi-notetaker-app.herokuapp.com/) to go to the deployed application.
 
